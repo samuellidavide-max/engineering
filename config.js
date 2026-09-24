@@ -12,4 +12,5 @@ const CONFIG = {
   // apre l'informativa integrata qui sotto (da personalizzare).
   privacyUrl: "",
   web3formsKey: "",              // chiave da web3forms.com (moduli via email)
+  kitArticlesUrl: "https://davide-samuelli.kit.com/f7fe4321c7",           // link PUBBLICO degli articoli Kit (per il pulsante "Leggi gli articoli")
 };

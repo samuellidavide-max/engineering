@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function(){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.fade-up').forEach(function(el){io.observe(el);});
 
+  var ab=document.getElementById('articlesBtn');
+  if(ab && CONFIG.kitArticlesUrl){ ab.href=CONFIG.kitArticlesUrl; ab.hidden=false; }
+
   document.querySelectorAll('form.jsform').forEach(function(form){
     form.addEventListener('submit', async function(e){
       e.preventDefault();
