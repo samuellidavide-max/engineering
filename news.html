@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News e approfondimenti — Davide Samuelli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-news">
+<input type="checkbox" id="navtog" class="navtog" hidden>
+<header class="top">
+  <div class="wrap">
+    <a href="index.html" class="brandlogo" aria-label="Davide Samuelli — Ingegnere Energetico" title="Davide Samuelli — Ingegnere Energetico"></a>
+    <label for="navtog" class="burger" aria-label="Apri il menu"><span></span><span></span><span></span></label>
+    <nav class="mainnav">
+      <a href="index.html" class="navlink">Home</a>
+      <a href="termotecnici.html" class="navlink">Impianti termotecnici</a>
+      <a href="elettrici.html" class="navlink">Impianti elettrici</a>
+      <a href="diagnosi.html" class="navlink">Diagnosi energetica</a>
+      <a href="detrazioni.html" class="navlink">Detrazioni fiscali</a>
+      <a href="ape.html" class="navlink">APE</a>
+      <a href="news.html" class="navlink on">News</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero"><div class="wrap" style="display:block">
+  <div class="fade-up" style="max-width:780px">
+    <div class="eyebrow">News</div>
+    <h1>News e approfondimenti</h1>
+    <p class="lead" style="max-width:60ch">Articoli, aggiornamenti normativi e consigli pratici su impianti tecnologici ed efficienza energetica.</p>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="newsbox fade-up">
+    <h3>Iscriviti alla newsletter</h3>
+    <p>Ricevi i nuovi articoli e gli aggiornamenti su bonus, normative ed efficienza energetica. Niente spam, disiscrizione quando vuoi.</p>
+    <form class="jsform newsletter" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="newsletter">
+      <p hidden><label>Non compilare<input name="bot-field"></label></p>
+      <input type="email" name="email" required placeholder="La tua email">
+      <button class="btn btn-primary" type="submit">Iscriviti</button>
+    </form>
+    <div class="form-ok" hidden><b>Iscrizione registrata!</b> Grazie, riceverai i prossimi aggiornamenti via email.</div>
+    <p class="news-consent">Iscrivendoti acconsenti al trattamento dell'email per l'invio della newsletter, secondo l'informativa privacy.</p>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="sec-head fade-up"><div class="eyebrow">Articoli</div><h2>Ultimi articoli</h2><p>Questi sono esempi dimostrativi: sostituiscili con i tuoi contenuti.</p></div>
+  <div class="news-grid">
+    <article class="article fade-up">
+      <div class="thumb"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.6"/><path d="M7 9h6M7 12h10M7 15h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <div class="abody">
+        <span class="tag">Guida · Esempio</span>
+        <h3>Come leggere l'Attestato di Prestazione Energetica</h3>
+        <p>Cosa indica davvero la classe energetica e come usarla quando compri o affitti casa.</p>
+        <span class="date">Presto online</span>
+      </div>
+    </article>
+    <article class="article fade-up">
+      <div class="thumb"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.6"/><path d="M7 9h6M7 12h10M7 15h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <div class="abody">
+        <span class="tag">Bonus · Esempio</span>
+        <h3>Ecobonus e Conto Termico: le differenze</h3>
+        <p>Due strade diverse per incentivare l'efficienza: quando conviene l'una o l'altra.</p>
+        <span class="date">Presto online</span>
+      </div>
+    </article>
+    <article class="article fade-up">
+      <div class="thumb"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.6"/><path d="M7 9h6M7 12h10M7 15h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <div class="abody">
+        <span class="tag">Impianti · Esempio</span>
+        <h3>Ventilazione meccanica: aria pulita e risparmio</h3>
+        <p>Perché la VMC sta diventando centrale negli edifici efficienti di oggi.</p>
+        <span class="date">Presto online</span>
+      </div>
+    </article>
+  </div>
+</div></section>
+<footer>
+  <div class="wrap">
+    <div class="col">
+      <div class="foot-logo"><span class="brandlogo foot" role="img" aria-label="Davide Samuelli — Ingegnere Energetico"></span></div>
+      <p style="margin-top:12px;opacity:.85;max-width:36ch">Progettazione e consulenza di impianti tecnologici ed efficienza energetica.</p>
+    </div>
+    <div class="col">
+      <h4>Contatti</h4>
+      <p id="footAddr">—</p>
+      <a id="footMail" href="#">email</a>
+      <a id="footTel" href="#">telefono</a>
+    </div>
+    <div class="col">
+      <h4>Servizi</h4>
+      <a href="termotecnici.html">Impianti termotecnici</a>
+      <a href="elettrici.html">Impianti elettrici</a>
+      <a href="diagnosi.html">Diagnosi energetica</a>
+      <a href="detrazioni.html">Detrazioni fiscali</a>
+      <a href="ape.html">Attestato APE</a>
+    </div>
+    <div class="fine">© <span id="year"></span> <span id="studioNameFine">Davide Samuelli</span> — P.IVA <span id="pivaFine">—</span>. I dati e i documenti inviati sono trattati nel rispetto del Regolamento UE 2016/679 (GDPR): non vengono divulgati né ceduti a terzi e sono utilizzati esclusivamente per la corretta redazione del preventivo e delle prestazioni professionali. &nbsp;·&nbsp; <a href="#" id="privacyLink" class="pv-link">Informativa privacy estesa e conservazione dei dati</a></div>
+  </div>
+</footer>
+
+<div class="pv-overlay" id="pvOverlay" role="dialog" aria-modal="true" aria-labelledby="pvTitle">
+  <div class="pv-modal">
+    <div class="pv-head"><h3 id="pvTitle">Informativa sul trattamento dei dati personali</h3><button class="pv-close" id="pvClose" aria-label="Chiudi">×</button></div>
+    <div class="pv-body">
+      <div class="pv-note">Testo fornito ai sensi degli artt. 13-14 del Regolamento UE 2016/679 (GDPR). È una base da adattare: verifica i contenuti con un consulente prima della pubblicazione definitiva.</div>
+      <h4>1. Titolare del trattamento</h4>
+      <p><span id="pvStudio">—</span>, <span id="pvAddr">—</span> — P.IVA <span id="pvPiva">—</span>. Email: <a id="pvEmail" href="#">—</a>.</p>
+      <h4>2. Dati trattati</h4>
+      <p>Dati anagrafici e di contatto (nome, email, telefono) ed eventuali dati e documenti tecnici relativi all'immobile e agli impianti che scegli di inviare.</p>
+      <h4>3. Finalità</h4>
+      <p>I dati sono utilizzati esclusivamente per rispondere alle richieste, elaborare preventivi ed erogare le prestazioni professionali richieste, oltre agli adempimenti di legge connessi. Per la newsletter, l'email è usata unicamente per l'invio degli aggiornamenti.</p>
+      <h4>4. Base giuridica</h4>
+      <p>Esecuzione di misure precontrattuali e del contratto (art. 6.1.b GDPR), obblighi di legge (art. 6.1.c) e, per la newsletter, consenso dell'interessato (art. 6.1.a).</p>
+      <h4>5. Conservazione</h4>
+      <p>I dati sono conservati per il tempo necessario alle finalità indicate e ai termini di legge; al termine sono cancellati o resi anonimi. Per la newsletter, fino alla disiscrizione.</p>
+      <h4>6. Comunicazione a terzi</h4>
+      <p>I dati non sono diffusi né ceduti a terzi per finalità commerciali. Sono comunicati solo a enti/soggetti quando necessario per obblighi di legge o a collaboratori tecnici vincolati alla riservatezza.</p>
+      <h4>7. Diritti dell'interessato</h4>
+      <p>Puoi esercitare i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilità (artt. 15-22 GDPR) e proporre reclamo al Garante per la protezione dei dati personali.</p>
+      <h4>8. Contatti</h4>
+      <p>Per esercitare i tuoi diritti scrivi a <a id="pvEmail2" href="#">—</a>.</p>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
