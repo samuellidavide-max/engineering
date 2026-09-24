@@ -26,22 +26,28 @@
     </nav>
   </div>
 </header>
-
-<section class="hero"><div class="wrap" style="display:block">
-  <div class="fade-up" style="max-width:780px">
+<section class="hero"><div class="wrap">
+  <div class="fade-up">
     <div class="eyebrow">News</div>
     <h1>News e approfondimenti</h1>
-    <p class="lead" style="max-width:60ch">Articoli, aggiornamenti normativi e consigli pratici su impianti tecnologici ed efficienza energetica.</p>
+    <p class="lead">Articoli, aggiornamenti normativi e consigli pratici su impianti tecnologici ed efficienza energetica.</p>
+    <div class="cta-row"><a href="#newsletter" class="btn btn-primary">Iscriviti alla newsletter</a></div>
   </div>
+  <div class="hero-visual fade-up"><svg class="viz viz-news" viewBox="0 0 260 240" aria-hidden="true">
+  <rect x="58" y="112" width="146" height="94" rx="9" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <path d="M58 122 l73 54 73 -54" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <path class="plane" d="M36 66 l64 26 -28 10 -6 26 -9 -24 z" fill="var(--brand)"/>
+  <circle class="dot" cx="196" cy="104" r="10" fill="var(--brand)"/>
+</svg></div>
 </div></section>
 
-<section class="block"><div class="wrap">
+<section class="block" id="newsletter"><div class="wrap">
   <div class="newsbox fade-up">
     <h3>Iscriviti alla newsletter</h3>
     <p>Ricevi i nuovi articoli e gli aggiornamenti su bonus, normative ed efficienza energetica. Niente spam, disiscrizione quando vuoi.</p>
-    <form class="jsform newsletter" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="newsletter">
+    <form class="jsform newsletter" name="newsletter" method="POST">
       <p hidden><label>Non compilare<input name="bot-field"></label></p>
+      <input type="hidden" name="oggetto" value="Nuova iscrizione newsletter">
       <input type="email" name="email" required placeholder="La tua email">
       <button class="btn btn-primary" type="submit">Iscriviti</button>
     </form>
@@ -52,6 +58,11 @@
 
 <section class="block"><div class="wrap">
   <div class="sec-head fade-up"><div class="eyebrow">Articoli</div><h2>Ultimi articoli</h2><p>Questi sono esempi dimostrativi: sostituiscili con i tuoi contenuti.</p></div>
+  <!-- ===================================================================
+       COME AGGIUNGERE UN ARTICOLO:
+       copia un blocco <article>...</article> qui sotto, incollalo come primo
+       della lista e cambia: tag, titolo, testo e data. Salva e ripubblica.
+       =================================================================== -->
   <div class="news-grid">
     <article class="article fade-up">
       <div class="thumb"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.6"/><path d="M7 9h6M7 12h10M7 15h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
@@ -122,7 +133,7 @@
       <h4>5. Conservazione</h4>
       <p>I dati sono conservati per il tempo necessario alle finalità indicate e ai termini di legge; al termine sono cancellati o resi anonimi. Per la newsletter, fino alla disiscrizione.</p>
       <h4>6. Comunicazione a terzi</h4>
-      <p>I dati non sono diffusi né ceduti a terzi per finalità commerciali. Sono comunicati solo a enti/soggetti quando necessario per obblighi di legge o a collaboratori tecnici vincolati alla riservatezza.</p>
+      <p>I dati non sono diffusi né ceduti a terzi per finalità commerciali. Sono comunicati solo a enti/soggetti quando necessario per obblighi di legge o a collaboratori tecnici vincolati alla riservatezza. I moduli del sito sono gestiti tramite un servizio esterno di inoltro email/newsletter.</p>
       <h4>7. Diritti dell'interessato</h4>
       <p>Puoi esercitare i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilità (artt. 15-22 GDPR) e proporre reclamo al Garante per la protezione dei dati personali.</p>
       <h4>8. Contatti</h4>

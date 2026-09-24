@@ -16,26 +16,34 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.fade-up').forEach(function(el){io.observe(el);});
+
   document.querySelectorAll('form.jsform').forEach(function(form){
     form.addEventListener('submit', async function(e){
       e.preventDefault();
       var btn=form.querySelector('button[type=submit]'); var old=btn?btn.textContent:'';
-      if(btn){btn.disabled=true; btn.textContent='Invio…';}
-      var data=new FormData(form); var params=new URLSearchParams();
-      data.forEach(function(v,k){ params.append(k,v); });
-      var ok=false;
-      try{ var r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()}); ok=r.ok; }catch(err){ ok=false; }
       var okBox=form.parentNode.querySelector('.form-ok');
-      if(ok){ form.style.display='none'; if(okBox) okBox.hidden=false; }
-      else {
-        if(btn){btn.disabled=false; btn.textContent=old;}
-        var subj=encodeURIComponent((data.get('oggetto')||'Richiesta dal sito')+' — '+(data.get('nome')||''));
-        var lines=[]; data.forEach(function(v,k){ if(['form-name','bot-field'].indexOf(k)<0 && v) lines.push(k+': '+v); });
+      var data=new FormData(form); var payload={};
+      data.forEach(function(v,k){ if(['form-name','bot-field'].indexOf(k)<0) payload[k]=v; });
+      payload.subject=(payload.oggetto||'Nuovo messaggio dal sito')+' — '+(payload.nome||payload.email||'');
+      payload.from_name='Sito '+CONFIG.studio;
+      payload.access_key=CONFIG.web3formsKey||'';
+      function fallback(){
+        var subj=encodeURIComponent(payload.subject);
+        var lines=Object.keys(payload).filter(function(k){return ['access_key','from_name','subject'].indexOf(k)<0 && payload[k];}).map(function(k){return k+': '+payload[k];});
         var mail='mailto:'+CONFIG.email+'?subject='+subj+'&body='+encodeURIComponent(lines.join('\n'));
         var note=form.parentNode.querySelector('.form-fallback');
-        if(!note){ note=document.createElement('p'); note.className='news-consent form-fallback'; note.style.marginTop='12px'; form.parentNode.appendChild(note); }
+        if(!note){note=document.createElement('p');note.className='news-consent form-fallback';note.style.marginTop='12px';form.parentNode.appendChild(note);}
         note.innerHTML='Invio non riuscito online. Scrivimi direttamente: <a href="'+mail+'">apri l\'email</a> oppure a <b>'+CONFIG.email+'</b>.';
       }
+      if(!CONFIG.web3formsKey){ fallback(); return; }
+      if(btn){btn.disabled=true; btn.textContent='Invio…';}
+      var ok=false;
+      try{
+        var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+        var j=await r.json(); ok=!!j.success;
+      }catch(err){ ok=false; }
+      if(ok){ form.style.display='none'; if(okBox) okBox.hidden=false; }
+      else { if(btn){btn.disabled=false; btn.textContent=old;} fallback(); }
     });
   });
 });

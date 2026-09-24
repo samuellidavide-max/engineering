@@ -10,5 +10,6 @@ const CONFIG = {
   linkCaricamento: "https://www.dropbox.com/request/v8w1e8wmlx8o7pm1sooz",
   // URL a un'informativa privacy esterna. Se vuoto, il link a piè di pagina
   // apre l'informativa integrata qui sotto (da personalizzare).
-  privacyUrl: ""
+  privacyUrl: "",
+  web3formsKey: "",              // chiave da web3forms.com (moduli via email)
 };

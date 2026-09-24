@@ -411,13 +411,16 @@ Documenti dichiarati pronti:
 async function submitRequest(btn){
   const d=state.data;
   const documenti = `Catasto: ${state.docs.catasto?'sì':'no'} · Foto: ${state.docs.foto?'sì':'no'} · Libretto: ${state.docs.libretto?'sì':'no'}`;
-  const payload = {'form-name':'preventivo-ape', nome:d.nome, email:d.email, telefono:d.telefono, indirizzo:d.indirizzo, tipo:d.tipo||'', finalita:d.finalita||'', documenti};
   if(btn){ btn.disabled=true; btn.textContent='Invio in corso…'; }
   let ok=false;
-  try{
-    const res = await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:new URLSearchParams(payload).toString()});
-    ok = res.ok;
-  }catch(e){ ok=false; }
+  if(CONFIG.web3formsKey){
+    try{
+      const res = await fetch('https://api.web3forms.com/submit', {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({access_key:CONFIG.web3formsKey, subject:'Richiesta APE — '+(d.nome||''), from_name:'Sito '+CONFIG.studio,
+          nome:d.nome, email:d.email, telefono:d.telefono, immobile:d.indirizzo, tipo:d.tipo||'', finalita:d.finalita||'', documenti})});
+      const j=await res.json(); ok=!!j.success;
+    }catch(e){ ok=false; }
+  }
   state.sent = ok ? 'ok' : 'fallback';
   renderSuccess();
 }

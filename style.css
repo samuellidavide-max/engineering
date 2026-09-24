@@ -328,3 +328,38 @@ body.theme-detrazioni{--bg:#F3EFE6;--accent:#B08733}
 body.theme-news{--bg:#ECEFF3;--accent:#5566B0}
 @media(prefers-color-scheme:dark){ body[class*="theme-"]:not([data-theme="light"]){--bg:#0B1512} }
 body[data-theme="dark"][class*="theme-"]{--bg:#0B1512}
+
+/* ============ HERO VISUAL + ANIMAZIONI ============ */
+.hero-visual{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow);display:grid;place-items:center;min-height:260px}
+.viz{width:100%;max-width:300px;height:auto;display:block}
+@keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+/* termotecnici: onde di calore */
+.viz-termo .wave{animation:heatRise 2.4s ease-in-out infinite}
+.viz-termo .w2{animation-delay:.6s}.viz-termo .w3{animation-delay:1.2s}
+@keyframes heatRise{0%{opacity:0;transform:translateY(8px)}30%{opacity:1}100%{opacity:0;transform:translateY(-12px)}}
+.viz-termo .sun{transform-box:view-box;transform-origin:130px 58px;animation:pop 5s ease-in-out infinite}
+/* elettrici: corrente + lampadina + fulmine */
+.viz-elettrici .live{animation:flow 1.8s linear infinite}
+@keyframes flow{from{stroke-dashoffset:230}to{stroke-dashoffset:0}}
+.viz-elettrici .bulb{animation:glow 1.8s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:.35}55%{opacity:1}}
+.viz-elettrici .bolt{animation:flash 1.8s steps(1) infinite}
+@keyframes flash{0%,60%{opacity:.25}62%,100%{opacity:1}}
+/* diagnosi: lancetta + arco */
+.viz-diagnosi .needle{transform-box:view-box;transform-origin:130px 172px;animation:sweep 3.2s ease-in-out infinite}
+@keyframes sweep{0%,100%{transform:rotate(-58deg)}50%{transform:rotate(58deg)}}
+.viz-diagnosi .arc{animation:fillarc 3.2s ease-in-out infinite}
+@keyframes fillarc{0%,100%{stroke-dashoffset:210}50%{stroke-dashoffset:74}}
+/* detrazioni: monete + % */
+.viz-detrazioni .coin{animation:bob 2.4s ease-in-out infinite}
+.viz-detrazioni .c2{animation-delay:.2s}.viz-detrazioni .c3{animation-delay:.4s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.viz-detrazioni .pct{transform-box:view-box;transform-origin:196px 80px;animation:pop 2.4s ease-in-out infinite}
+/* home: onde radar attorno alla casa */
+.viz-home .ring{transform-box:view-box;transform-origin:130px 122px;animation:radar 2.6s ease-out infinite;opacity:0}
+.viz-home .r2{animation-delay:.9s}.viz-home .r3{animation-delay:1.8s}
+@keyframes radar{0%{transform:scale(.5);opacity:.8}100%{transform:scale(2.2);opacity:0}}
+/* news: aereo + notifica */
+.viz-news .plane{animation:fly 3s ease-in-out infinite}
+@keyframes fly{0%{transform:translate(0,0);opacity:0}18%{opacity:1}82%{opacity:1}100%{transform:translate(120px,42px);opacity:0}}
+.viz-news .dot{transform-box:view-box;transform-origin:196px 104px;animation:pop 1.8s ease-in-out infinite}
